@@ -49,13 +49,13 @@ public class BlackJack {
       System.out.println("1: Si");
       int Seguir = sc.nextInt();
 
-      //Bucle para pedir cartas
       while (Seguir == 1 && cuenta < 21) {
         carta cartaExtra = new carta();
         cartaExtra.asignarCarta();
         System.out.println(cartaExtra);
-        cuenta = cuenta + cartaExtra.getValor();
-        System.out.println(cuenta);
+
+        cuenta += cartaExtra.getValor();
+        System.out.println("Nueva Suma: " + cuenta);
 
         if (cuenta < 21) {
           System.out.println("¿Seguir pidiendo?");
@@ -63,10 +63,10 @@ public class BlackJack {
           System.out.println("1: Si");
           Seguir = sc.nextInt();
         }
+      }
 
 
       }
     }
 
-  }
   }
