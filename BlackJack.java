@@ -28,7 +28,7 @@ public class BlackJack {
     while (inicio) {
       System.out.println("Crédido: " + credito);
       System.out.println();
-      System.err.println("¿Cuánto quieres apostar?");
+      System.out.println("¿Cuánto quieres apostar?");
       int apuesta = sc.nextInt();
       cuenta = 0;
       credito -= apuesta;
@@ -65,8 +65,36 @@ public class BlackJack {
         }
       }
 
+      if (cuenta <= 21) {
+        int cuentaCrupier = 0;
+        System.out.println("Turno del Crupier: ");
+
+        while (cuentaCrupier < 17) {
+          carta cartaCrupier = new carta();
+          cartaCrupier.asignarCarta();
+          cuentaCrupier += cartaCrupier.getValor();
+          System.out.println("El crupier saca: " + cartaCrupier + " (Suma: " + cuentaCrupier + ")");
+        }
+
+        System.out.println(" Resultados");
+        System.out.println("Tu puntuación: " + cuenta);
+        System.out.println("Puntuación del crupier: " + cuentaCrupier);
+
+        //Como saber quíen gana
+        if (cuentaCrupier > 21 || cuenta > cuentaCrupier) {
+          System.out.println("¡Ganaste!");
+          credito += (apuesta * 2);
+        } else if (cuenta==cuentaCrupier) {
+          System.out.println("Empate");
+          credito+=apuesta;
+        }else{
+          System.out.println("Gana el crupier. Pierdes tu apuesta.");
+        }
+      } else {
+        System.out.println("Te has pasado de 21. Pierdes.");
+      }
 
       }
     }
-
   }
+
