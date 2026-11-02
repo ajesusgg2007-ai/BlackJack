@@ -58,12 +58,14 @@ public class carta {
     public void asignarCarta() {
         valor = numero.nextInt(10) + 1;
 
-        if (valor == 1) nombre = "As de";
-        else if (valor == 10) 
+        if (valor == 1)
+        {nombre = "As de";
+            }
+        else if (valor == 10)
         {
             switch (numero.nextInt(2)) {
                 case 0:
-                    
+
                 nombre = "Rey ";
 
                     break;
@@ -77,17 +79,10 @@ public class carta {
                 case 2:
 
                 nombre = "Jota ";
-                
+
                 break;
             }
         }
-        
-        else if (valor == 1 && nuevacarta <= 2) 
-        {
-            valor = 11;
-        }
-  
-        
         else nombre = String.valueOf(valor);
 
         String[] palos = {"de Corazones", "de Picas", "de Diamantes", "de Tréboles"};
